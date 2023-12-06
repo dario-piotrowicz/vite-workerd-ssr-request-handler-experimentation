@@ -1,0 +1,1 @@
+export { preactWorkerdSSR } from "./plugin";

@@ -1,0 +1,4 @@
+packages:
+  - "preact-app"
+  - "preact-workerd-ssr-plugin"
+  - "vite-workerd-request-handler"

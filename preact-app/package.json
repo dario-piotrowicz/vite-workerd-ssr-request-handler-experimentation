@@ -1,0 +1,19 @@
+{
+	"name": "preact-app",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"@preact/preset-vite": "^2.5.0",
+		"preact": "^10.16.0",
+		"preact-render-to-string": "^6.2.0",
+		"vite": "^4.4.0",
+		"preact-workerd-ssr-plugin": "workspace:*"
+	},
+	"dependencies": {}
+}

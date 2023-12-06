@@ -1,0 +1,66 @@
+let evalBinding = null;
+
+globalThis.navigator = {};
+
+export default {
+	async fetch(request, env, context) {
+		evalBinding = env.UNSAFE_EVAL;
+
+		const entrypointModule = await __vite_ssr_dynamic_import__("WORKERD_APP_ENTRYPOINT");
+
+		__REQUEST_HANDLER__
+
+		return requestHandler({ entrypointModule, request, context });
+	}
+}
+
+const __ourPrivateModuleRegistry__ = new Map();
+
+// create our own implementation
+async function __vite_ssr_import__(moduleId) {
+	if (__ourPrivateModuleRegistry__.has(moduleId)) {
+		return __ourPrivateModuleRegistry__.get(moduleId);
+	}
+
+	let moduleObject = Object.create(null);
+
+	// instead of adding the module to the registry once it has been fully initialized we
+	// set it as soon as we've generated the object (even if empty), we do this so that
+	// we can prevent circular dependencies from generating infinite loops
+	__ourPrivateModuleRegistry__.set(moduleId, moduleObject)
+
+	const __vite_ssr_exportAll__ = (exports) => {
+		Object.assign(moduleObject, exports);
+	};
+	const __vite_ssr_import_meta__ = {};
+
+	// go back to Vite and request the code for the module (via transformRequest)
+	const transformed = await (await fetch(`VITE_SERVER_ADDRESS/__workerd_loader/?moduleId=${moduleId}`)).text();
+
+	const context = {
+		__vite_ssr_exports__: {},
+		__vite_ssr_exportAll__,
+		__vite_ssr_import_meta__,
+		__vite_ssr_import__,
+		__vite_ssr_dynamic_import__,
+	};
+
+	const codeDefinition = `'use strict'; return async (${Object.keys(
+		context,
+	).join(",")})=>{`;
+	const code = `
+		${codeDefinition}
+		${transformed}
+	}`;
+
+	// eval the code, register all exports with `module` and trigger recursive imports
+
+	const fn = evalBinding.newFunction(code)();
+	await fn(...Object.values(context));
+	Object.assign(moduleObject, context.__vite_ssr_exports__);
+
+	return moduleObject;
+}
+
+// create our own implementation
+const __vite_ssr_dynamic_import__ = __vite_ssr_import__;
