@@ -9,7 +9,11 @@ export default {
 	clearScreen: false,
 	appType: "custom",
 	ssr: {
+		target: "webworker",
 		noExternal: true,
+		optimizeDeps: {
+			include: ["preact", "preact-render-to-string"],
+		},
 	},
 	plugins: [
 		preact(),
