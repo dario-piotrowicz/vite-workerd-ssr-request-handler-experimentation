@@ -15,8 +15,8 @@ importers:
   preact-app:
     devDependencies:
       '@hiogawa/vite-node-miniflare':
-        specifier: 0.0.0-pre.3
-        version: 0.0.0-pre.3(miniflare@3.20231030.4)(vite@4.5.0)
+        specifier: 0.0.0-pre.4
+        version: 0.0.0-pre.4(miniflare@3.20231030.4)(vite@4.5.0)
       '@preact/preset-vite':
         specifier: ^2.5.0
         version: 2.6.0(@babel/core@7.23.2)(preact@10.18.1)(vite@4.5.0)
@@ -868,8 +868,8 @@ packages:
       node-fetch-native: 1.4.1
     dev: true
 
-  /@hiogawa/vite-node-miniflare@0.0.0-pre.3(miniflare@3.20231030.4)(vite@4.5.0):
-    resolution: {integrity: sha512-jI+L4SGwCwc/kFrEG5d8d1dGAD8DayTiwU21rFjgIzVvFDf0V5BDa9uUdjUZLt/zSA38Y4hmSPLBS+hvtSMOjg==}
+  /@hiogawa/vite-node-miniflare@0.0.0-pre.4(miniflare@3.20231030.4)(vite@4.5.0):
+    resolution: {integrity: sha512-cYG+Fx5P4VN2EeioRA9w3wn2RNTQFj00BUHt/Z5uKvH8hDOcJiqYvqXZ+7v/vKEtdusxoThHKj+je1YWiMflDA==}
     peerDependencies:
       miniflare: '*'
       vite: '*'

@@ -14,6 +14,7 @@ export default {
 	plugins: [
 		preact(),
 		vitePluginViteNodeMiniflare({
+			debug: true,
 			entry: "/worker-entry.ts",
 			miniflareOptions(options) {
 				options.log = new Log();
