@@ -10,7 +10,7 @@
 	},
 	"devDependencies": {
 		"miniflare": "^3.20231030.3",
-		"@hiogawa/vite-node-miniflare": "0.0.0-pre.4",
+		"@hiogawa/vite-node-miniflare": "0.0.0-pre.8",
 		"@preact/preset-vite": "^2.5.0",
 		"preact": "^10.16.0",
 		"preact-render-to-string": "^6.2.0",
