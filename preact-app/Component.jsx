@@ -1,5 +1,7 @@
 import "./index.css";
-export default ({ url, title } = {}) => {
+
+// named function for HMR
+export default function Component({ url, title } = {}) {
 	return (
 		<>
 			<main>
