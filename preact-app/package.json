@@ -5,6 +5,8 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
+		"dev:workerd": "pluginName=preactWorkerdSSR vite",
+		"dev:vite-node": "pluginName=vitePluginViteNodeMiniflare vite",
 		"build": "vite build",
 		"preview": "vite preview"
 	},
