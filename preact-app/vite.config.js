@@ -34,22 +34,19 @@ const workerdPlugin = workerdPlugins[workerdPluginName];
 
 /** @type {import('vite').UserConfig} */
 export default {
-	// config options
-	clearScreen: false,
-	appType: "custom",
-	ssr: {
-		target: "webworker",
-		noExternal: true,
-		optimizeDeps: {
-			include: ["preact", "preact-render-to-string"],
-		},
-	},
-	plugins: [
-		preact(),
-		workerdPlugin,
-	],
-	build: {
-		minify: false,
-		ssrEmitAssets: true,
-	},
+  // config options
+  clearScreen: false,
+  appType: "custom",
+  ssr: {
+    target: "webworker",
+    noExternal: true,
+    optimizeDeps: {
+      include: ["preact", "preact-render-to-string"],
+    },
+  },
+  plugins: [preact(), workerdPlugin],
+  build: {
+    minify: false,
+    ssrEmitAssets: true,
+  },
 };

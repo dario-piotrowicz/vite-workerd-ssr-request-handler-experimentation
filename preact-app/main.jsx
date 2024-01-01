@@ -3,6 +3,6 @@ import Component from "./Component.jsx";
 import { getTitle } from "./title.js";
 
 render(
-	<Component url={location.pathname} title={getTitle()} />,
-	document.getElementById("app"),
+  <Component url={location.pathname} title={getTitle()} />,
+  document.getElementById("app"),
 );

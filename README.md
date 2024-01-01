@@ -7,11 +7,13 @@ dev server.
 ## To run the application
 
 Install the dependencies:
+
 ```
 pnpm i
 ```
 
 and simply run the preact app with:
+
 ```
 pnpm preact:dev
 ```
@@ -37,14 +39,16 @@ The above mentioned handler is created using the [createWorkerdHandler](https://
 ### createWorkerdHandler
 
 The `createWorkerdHandler` takes three values as inputs:
- - entrypoint: the entrypoint file for the application
- - server: the viteDevServer, which the handler needs to integrate with
- - requestHandler: framework specific logic on how requests should be handled
+
+- entrypoint: the entrypoint file for the application
+- server: the viteDevServer, which the handler needs to integrate with
+- requestHandler: framework specific logic on how requests should be handled
 
 What the function then does is:
- - [start a new miniflare instance in which the code can be run](https://github.com/dario-piotrowicz/vite-workerd-ssr-request-handler-experimentation/blob/b7cd933cec66bae2ff90fe6b96f1d57fc7a7528f/vite-workerd-request-handler/src/index.ts#L21-L27)
- - [register a new "workerd loader" middleware](https://github.com/dario-piotrowicz/vite-workerd-ssr-request-handler-experimentation/blob/b7cd933cec66bae2ff90fe6b96f1d57fc7a7528f/vite-workerd-request-handler/src/index.ts#L30-L31), which is used to allow the workerd code to dynamically load modules
- - simply [returns a handler](https://github.com/dario-piotrowicz/vite-workerd-ssr-request-handler-experimentation/blob/b7cd933cec66bae2ff90fe6b96f1d57fc7a7528f/vite-workerd-request-handler/src/index.ts#L52C30-L52C30) that can be used by the vite plugin
+
+- [start a new miniflare instance in which the code can be run](https://github.com/dario-piotrowicz/vite-workerd-ssr-request-handler-experimentation/blob/b7cd933cec66bae2ff90fe6b96f1d57fc7a7528f/vite-workerd-request-handler/src/index.ts#L21-L27)
+- [register a new "workerd loader" middleware](https://github.com/dario-piotrowicz/vite-workerd-ssr-request-handler-experimentation/blob/b7cd933cec66bae2ff90fe6b96f1d57fc7a7528f/vite-workerd-request-handler/src/index.ts#L30-L31), which is used to allow the workerd code to dynamically load modules
+- simply [returns a handler](https://github.com/dario-piotrowicz/vite-workerd-ssr-request-handler-experimentation/blob/b7cd933cec66bae2ff90fe6b96f1d57fc7a7528f/vite-workerd-request-handler/src/index.ts#L52C30-L52C30) that can be used by the vite plugin
 
 ### How the code runs in workerd
 

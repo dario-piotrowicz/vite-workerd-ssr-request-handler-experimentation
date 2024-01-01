@@ -1,5 +1,5 @@
 import { render } from "./entry-server";
-import type { ViteNodeMiniflareClient } from "@hiogawa/vite-node-miniflare/dist/client/vite-node"
+import type { ViteNodeMiniflareClient } from "@hiogawa/vite-node-miniflare/dist/client/vite-node";
 
 export default {
   async fetch(request: Request, env: any) {

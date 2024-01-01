@@ -1,14 +1,14 @@
 {
-	"name": "vite-workerd-ssr-request-handler-experimentation",
-	"scripts": {
-		"prettify": "prettier . --write --ignore-unknown",
-		"build": "pnpm --filter vite-workerd-request-handler --filter preact-workerd-ssr-plugin --filter preact-app --sequential build",
-		"build:types": "pnpm --filter vite-workerd-request-handler --filter preact-workerd-ssr-plugin --sequential build:types",
-		"postinstall": "pnpm build && pnpm build:types",
-		"preact:dev": "pnpm --filter preact-app dev",
-		"preact:dev:vite-node": "pnpm --filter preact-app dev:vite-node"
-	},
-	"devDependencies": {
-		"prettier": "^3.0.3"
-	}
+  "name": "vite-workerd-ssr-request-handler-experimentation",
+  "scripts": {
+    "prettify": "prettier . --write --ignore-unknown",
+    "build": "pnpm --filter vite-workerd-request-handler --filter preact-workerd-ssr-plugin --filter preact-app --sequential build",
+    "build:types": "pnpm --filter vite-workerd-request-handler --filter preact-workerd-ssr-plugin --sequential build:types",
+    "postinstall": "pnpm build && pnpm build:types",
+    "preact:dev": "pnpm --filter preact-app dev",
+    "preact:dev:vite-node": "pnpm --filter preact-app dev:vite-node"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3"
+  }
 }
